@@ -1,0 +1,18 @@
+# ─────────────────────────────────────────────
+# AXIOM Frontend Dockerfile
+# Target: Vercel (use vercel.json for prod deploy)
+# This Dockerfile is for local Docker Compose dev
+# ─────────────────────────────────────────────
+
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "run", "dev"]

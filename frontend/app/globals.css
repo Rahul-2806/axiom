@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── AXIOM Design System ─────────────────────────────────── */
+
+:root {
+  --axiom-black:    #050508;
+  --axiom-void:     #0a0a12;
+  --axiom-surface:  #0f0f1a;
+  --axiom-border:   #1a1a2e;
+  --axiom-gold:     #D4AF37;
+  --axiom-gold-dim: #9a7e27;
+  --axiom-cyan:     #00f5ff;
+  --axiom-purple:   #6c3aff;
+  --axiom-red:      #ff2d55;
+  --axiom-green:    #00ff87;
+  --axiom-text:     #e8e8f0;
+  --axiom-muted:    #6b6b80;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--axiom-black);
+  color: var(--axiom-text);
+  min-height: 100vh;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--axiom-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--axiom-gold-dim);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--axiom-gold);
+}
+
+/* ── Selection ───────────────────────────────────────────── */
+
+::selection {
+  background: rgba(212, 175, 55, 0.25);
+  color: var(--axiom-gold);
+}
+
+/* ── AXIOM Components ────────────────────────────────────── */
+
+.axiom-panel {
+  background: var(--axiom-surface);
+  border: 1px solid var(--axiom-border);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+}
+
+.axiom-gold-text {
+  color: var(--axiom-gold);
+  font-family: var(--font-display);
+}
+
+.axiom-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.15),
+              0 0 60px rgba(212, 175, 55, 0.05);
+}
+
+.axiom-cyan-glow {
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.15),
+              0 0 60px rgba(0, 245, 255, 0.05);
+}
+
+.axiom-grid-bg {
+  background-image: 
+    linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── Markdown Output ─────────────────────────────────────── */
+
+.axiom-markdown {
+  line-height: 1.7;
+}
+
+.axiom-markdown h1, .axiom-markdown h2, .axiom-markdown h3 {
+  font-family: var(--font-display);
+  color: var(--axiom-gold);
+  margin: 1.5em 0 0.5em;
+}
+
+.axiom-markdown h1 { font-size: 1.5rem; }
+.axiom-markdown h2 { font-size: 1.25rem; }
+.axiom-markdown h3 { font-size: 1.1rem; }
+
+.axiom-markdown p {
+  margin: 0.75em 0;
+  color: var(--axiom-text);
+}
+
+.axiom-markdown code {
+  font-family: var(--font-mono);
+  background: rgba(212, 175, 55, 0.08);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 0.1em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  color: var(--axiom-gold);
+}
+
+.axiom-markdown pre {
+  background: var(--axiom-void) !important;
+  border: 1px solid var(--axiom-border);
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1em 0;
+}
+
+.axiom-markdown pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--axiom-text);
+}
+
+.axiom-markdown ul, .axiom-markdown ol {
+  padding-left: 1.5em;
+  margin: 0.5em 0;
+}
+
+.axiom-markdown li {
+  margin: 0.25em 0;
+}
+
+.axiom-markdown a {
+  color: var(--axiom-cyan);
+  text-decoration: none;
+}
+.axiom-markdown a:hover {
+  text-decoration: underline;
+}
+
+.axiom-markdown blockquote {
+  border-left: 3px solid var(--axiom-gold);
+  padding-left: 1em;
+  margin: 1em 0;
+  color: var(--axiom-muted);
+}
+
+.axiom-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1em 0;
+  font-size: 0.9rem;
+}
+
+.axiom-markdown th {
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--axiom-gold);
+  padding: 0.5em 1em;
+  text-align: left;
+  font-family: var(--font-display);
+  border-bottom: 1px solid var(--axiom-gold-dim);
+}
+
+.axiom-markdown td {
+  padding: 0.5em 1em;
+  border-bottom: 1px solid var(--axiom-border);
+}
+
+.axiom-markdown strong {
+  color: var(--axiom-text);
+  font-weight: 600;
+}
+
+/* ── Agent Status Indicators ─────────────────────────────── */
+
+.agent-idle    { border-color: var(--axiom-border); }
+.agent-running { border-color: var(--axiom-gold); animation: pulse-gold 1.5s infinite; }
+.agent-complete { border-color: var(--axiom-green); }
+.agent-error   { border-color: var(--axiom-red); }
+
+/* ── Cursor blinking for streaming ───────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.streaming-cursor::after {
+  content: "▋";
+  color: var(--axiom-gold);
+  animation: blink 1s step-end infinite;
+  margin-left: 2px;
+}

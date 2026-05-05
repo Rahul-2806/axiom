@@ -1,0 +1,55 @@
+# ── Python ─────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Environment ────────────────────────
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.local.example
+
+# ── Node.js ────────────────────────────
+node_modules/
+.next/
+.turbo/
+out/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Editor ─────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# ── Docker ─────────────────────────────
+*.env.docker
+
+# ── Models/Data ────────────────────────
+*.pkl
+*.onnx
+*.h5
+*.pt
+*.bin
+
+# ── Misc ───────────────────────────────
+*.log
+*.tmp
+.axiom-cache/
